@@ -1,6 +1,5 @@
 # dependencies
 node_modules
-migrations
 
 # next.js
 .next
@@ -88,3 +87,4 @@ typings
 # System Files
 .DS_Store
 Thumbs.db
+.angular

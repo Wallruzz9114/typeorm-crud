@@ -1,20 +1,17 @@
-import * as dotenv from 'dotenv';
 import { ConnectionOptions } from 'typeorm';
-import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
-import { root } from '../paths';
-
-dotenv.config();
 
 const dbConfig: ConnectionOptions = {
   type: 'sqlite',
-  database: `${root}/db/crud.sqlite`,
+  database: 'database.sqlite',
   logging: true,
-  namingStrategy: new SnakeNamingStrategy(),
+  synchronize: true,
   entities: ['src/entities/**/*.ts'],
   migrations: ['src/migrations/**/*.ts'],
+  subscribers: ['src/subscribers/**/*.ts'],
   cli: {
     entitiesDir: 'src/entities',
     migrationsDir: 'src/migrations',
+    subscribersDir: 'src/subscribers',
   },
 };
 
